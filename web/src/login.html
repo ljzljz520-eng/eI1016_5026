@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building Operations</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="login-body">
+  <main class="login-shell">
+    <section class="login-context" aria-labelledby="product-name">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">BO</span>
+        <span>Northstar Facilities</span>
+      </div>
+      <div class="login-context-copy">
+        <p class="eyebrow">Operations control</p>
+        <h1 id="product-name">Building Operations</h1>
+        <p>Live oversight for vertical transport, climate systems, and site access.</p>
+      </div>
+      <div class="system-pulse" aria-label="System availability">
+        <span class="pulse-dot"></span>
+        Core monitoring online
+      </div>
+    </section>
+    <section class="login-panel" aria-labelledby="signin-title">
+      <form class="login-form" action="/login" method="post">
+        <div>
+          <p class="eyebrow">Authorized personnel</p>
+          <h2 id="signin-title">Sign in to continue</h2>
+        </div>
+        {{if .Message}}<div class="form-message" role="alert">{{.Message}}</div>{{end}}
+        <label>
+          <span>Username</span>
+          <input name="username" type="text" autocomplete="username" required autofocus>
+        </label>
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+      <p class="security-note">Access is recorded in the facility audit log.</p>
+    </section>
+  </main>
+</body>
+</html>

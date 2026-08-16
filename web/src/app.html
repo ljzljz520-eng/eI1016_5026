@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operations overview</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body class="app-body">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand-lockup sidebar-brand">
+        <span class="brand-mark" aria-hidden="true">BO</span>
+        <span>Northstar</span>
+      </div>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-item active" href="/" aria-current="page"><span aria-hidden="true">OV</span>Overview</a>
+        <a class="nav-item" href="#systems"><span aria-hidden="true">SY</span>Systems</a>
+        <a class="nav-item" href="#audit"><span aria-hidden="true">AU</span>Audit log</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="operator-avatar" aria-hidden="true">OA</span>
+        <div><strong>{{.Username}}</strong><span>Operations admin</span></div>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Facility command center</p>
+          <h1>Operations overview</h1>
+        </div>
+        <form action="/logout" method="post">
+          <button class="secondary-button" type="submit">Sign out</button>
+        </form>
+      </header>
+      <main>
+        <section class="summary-band" aria-label="Current summary">
+          <div><strong id="online-count">--</strong><span>Systems online</span></div>
+          <div><strong id="ticket-count">--</strong><span>Open tickets</span></div>
+          <div><strong>08:42</strong><span>Last inspection sync</span></div>
+          <span class="live-indicator"><span class="pulse-dot"></span>Live</span>
+        </section>
+        <section id="systems" class="content-section" aria-labelledby="systems-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Building systems</p><h2 id="systems-title">Service status</h2></div>
+            <span class="muted">Tower A / Main campus</span>
+          </div>
+          <div id="status-grid" class="status-grid" aria-live="polite">
+            <p class="loading-state">Loading system status...</p>
+          </div>
+        </section>
+        <section id="audit" class="content-section audit-section" aria-labelledby="audit-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Accountability</p><h2 id="audit-title">Recent access activity</h2></div>
+            <span class="muted">UTC timestamps</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Time</th><th>Operator</th><th>Action</th><th>Outcome</th></tr></thead>
+              <tbody id="audit-body"><tr><td colspan="4">Loading activity...</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
