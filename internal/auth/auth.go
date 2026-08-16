@@ -147,12 +147,10 @@ func (r *MemoryProtectionRepository) RecordFailure(username string) ProtectionSt
 	if !ok {
 		return ProtectionState{}
 	}
-	failures := state.failures.Load()
 	if r.barrier != nil {
 		r.barrier.Wait()
 	}
-	failures++
-	state.failures.Store(failures)
+	failures := state.failures.Add(1)
 	if failures >= r.threshold {
 		state.locked.Store(true)
 	}
